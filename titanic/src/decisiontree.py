@@ -19,7 +19,6 @@ class Decision_tree:
                     'condition': condition,
                     'op': op
                     }
-
                 )
 
     def get_children(self):
@@ -38,6 +37,7 @@ class Decision_tree:
         if len(self.children) > 0:
             return 0
         elif self.children[0]['event'] == event:
+            print(event)
             for child in self.children:
                 if  self.handle_op(
                         child['op'],
@@ -45,6 +45,7 @@ class Decision_tree:
                         condition):
                     return child['child'].survive_chance
         else:
+            print(event)
             return np.sum(
                     [
                         self.survive_chance*child['child'].\

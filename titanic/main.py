@@ -39,5 +39,15 @@ for line in population_conditions:
         new += tree.get_children()
     currents = new
 
-print(base.accum_proba('Age', '14', '<'))
+currents = [base]
+while len(currents) != 0:
+    new = []
+    print('###')
+    for current in currents:
+        print(len(current.get_children()), current.survive_chance)
+        new += current.get_children()
+    currents = new
+
+
+print(base.accum_proba('Age', 14, '<'))
 
